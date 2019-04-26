@@ -1,0 +1,22 @@
+[
+  {
+      "item": "VOUCHER",
+      "img":"http://www.cinemalaplata.com/ImagenesPromociones/13cupon.png",
+      "discountType": "axb",
+      "a": 2,
+      "b": 1,
+      "price": 5
+  },{
+      "item": "TSHIRT",
+      "img":"https://images-eu.ssl-images-amazon.com/images/I/41pNVQgLKUL._AC_US218_.jpg",
+      "discountType": "amount",
+      "amountNumber": 3,
+      "amountPrice": 19,
+      "price": 20
+  },{
+      "item": "MUG",
+      "img":"https://www.numomfg.com/assets/images/purple.jpg",
+      "discountType": "none",
+      "price": 7.5
+  }
+]
