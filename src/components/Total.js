@@ -4,6 +4,7 @@ import React, { Component} from 'react';
 
 class Total extends Component {
   total = React.createRef()
+  accordionContent = []
 
 
   calculateTotal = (p) => {
@@ -24,29 +25,23 @@ class Total extends Component {
     } else {
       return p.price * p.quantity
     }
-    
   }
 
-  totalBasket = () =>{
-    console.log("ref",this.refs.total)
-  }
-  
 
 
 render(){
   
-
   const productsList = this.props.products.map((product, index) => 
     <tr key={index}>
       <td scope="row">{product.item}</td>
       <td>{product.quantity}</td>
       <td>{product.price} €</td>
-      <td ref="total">{this.calculateTotal(product)} €</td>
+      <td ref={accordionContent => this.accordionContent[index] = accordionContent}>{this.calculateTotal(product)}</td>
     </tr>
     )
-    
-   
 
+  const totalBasket = this.accordionContent.map(v => parseFloat(v.innerText)).reduce((a,b) => a + b, 0)
+    
   return (
     <div className="FoodMenu">
       <h2>Cesta de la compra</h2>
@@ -63,7 +58,7 @@ render(){
           {productsList}
         </tbody>
       </table>
-      <h3>Total Cesta: {}</h3>
+      <h3>Total Cesta: {totalBasket} € </h3>
     </div>
   )
 }

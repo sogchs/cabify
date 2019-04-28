@@ -20,7 +20,6 @@ class App extends Component {
   }
 
   render(){
-    
   return (
     <div className="container mt-5">
       <div className="row">
