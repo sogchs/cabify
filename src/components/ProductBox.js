@@ -15,12 +15,16 @@ export default class ProductBox extends Component {
 
   render(){
 
-    const { img, item,  } = this.props.product;
+    const { img, item, discountExplain, price  } = this.props.product;
     return(
       <div className="card">
           <img className="img-product" src={img} alt=""/>
           <div className="quantity">
-            <p className="mr-2">{item}</p>
+            <div className="card-text">
+              <p className="mb-0">{item} <strong>{price}€</strong></p>
+              <small className="text-success">{discountExplain}</small>
+            </div>
+            
             <input className="input" type="number" min="1" value={this.state.quantity} name="quantity" onChange={this.onChangeQuantity}/>
             <button className="btn btn-outline-success" onClick={this.onAddToTotal}>+Add</button>
           </div>
