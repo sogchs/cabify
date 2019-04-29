@@ -3,12 +3,16 @@ import React, { Component} from 'react';
 
 
 class Total extends Component {
-  total = React.createRef()
+  state ={
+    totalBasket: 0
+  }
   accordionContent = []
+  
+  
 
 
   calculateTotal = (p) => {
-
+    
     if(p.discountType === "axb"){
       if (p.quantity % p.a === 0) {
         //de esta forma valdrá para 2x1 o 3x1 o más ejemplos
@@ -25,8 +29,19 @@ class Total extends Component {
     } else {
       return p.price * p.quantity
     }
+    
   }
 
+
+  componentDidUpdate(){
+    const totalBasket = this.accordionContent.map(v => parseFloat(v.innerText)).reduce((a,b) => a + b, 0);
+    console.log(totalBasket.valueOf())
+    //para que no falle el setstate por "Maximum update depth exceeded"
+    if (this.state.totalBasket !== totalBasket ) {
+      this.setState({ totalBasket: totalBasket });
+    }
+    
+  }
 
 
 render(){
@@ -40,11 +55,12 @@ render(){
     </tr>
     )
 
-  const totalBasket = this.accordionContent.map(v => parseFloat(v.innerText)).reduce((a,b) => a + b, 0)
-    
+  
+  
+
   return (
     <div className="FoodMenu">
-      <h2>Cesta de la compra</h2>
+      <h2>Shopping basket</h2>
       <table className="table">
         <thead>
           <tr>
@@ -58,7 +74,7 @@ render(){
           {productsList}
         </tbody>
       </table>
-      <h3>Total Cesta: {totalBasket} € </h3>
+      <h3>Total basket: {this.state.totalBasket} € </h3>
     </div>
   )
 }
