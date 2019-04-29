@@ -38,6 +38,10 @@ class App extends Component {
         <Total products={this.state.total}/>
         </div>
       </div>
+      <div className="signature">
+        <p className="text-purple">Test by Sergio Ortega Gil</p>
+      </div>
+      
     </div>
   );
   }

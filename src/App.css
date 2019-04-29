@@ -57,3 +57,9 @@ h3 {
 th {
   font-weight: 100 !important;
 }
+
+.signature{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
