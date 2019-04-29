@@ -6,10 +6,8 @@ class Total extends Component {
   state ={
     totalBasket: 0
   }
-  accordionContent = []
+  productFinalPrice = []
   
-  
-
 
   calculateTotal = (p) => {
     
@@ -34,7 +32,7 @@ class Total extends Component {
 
 
   componentDidUpdate(){
-    const totalBasket = this.accordionContent.map(v => parseFloat(v.innerText)).reduce((a,b) => a + b, 0);
+    const totalBasket = this.productFinalPrice.map(v => parseFloat(v.innerText)).reduce((a,b) => a + b, 0);
     console.log(totalBasket.valueOf())
     //para que no falle el setstate por "Maximum update depth exceeded"
     if (this.state.totalBasket !== totalBasket ) {
@@ -51,7 +49,7 @@ render(){
       <td scope="row">{product.item}</td>
       <td>{product.quantity}</td>
       <td>{product.price} €</td>
-      <td ref={accordionContent => this.accordionContent[index] = accordionContent}>{this.calculateTotal(product)}</td>
+      <td ref={productFinalPrice => this.productFinalPrice[index] = productFinalPrice}>{this.calculateTotal(product)}</td>
     </tr>
     )
 

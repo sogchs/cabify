@@ -22,11 +22,11 @@ export default class ProductBox extends Component {
           <div className="quantity">
             <div className="card-text">
               <p className="mb-0">{item} <strong>{price}€</strong></p>
-              <small className="text-success">{discountExplain}</small>
+              <small className="text-purple">{discountExplain}</small>
             </div>
             
             <input className="input" type="number" min="1" value={this.state.quantity} name="quantity" onChange={this.onChangeQuantity}/>
-            <button className="btn btn-outline-success" onClick={this.onAddToTotal}>+Add</button>
+            <button className="btn btn-purple" onClick={this.onAddToTotal}>+Add</button>
           </div>
         </div>
     )

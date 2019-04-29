@@ -21,10 +21,15 @@ class App extends Component {
 
   render(){
   return (
-    <div className="container mt-5">
+    <div className="container">
+    <div className="header">
+      <img className="logo" src="https://cdn2.ticbeat.com/src/uploads/2017/06/logo-Cabify-2017-horizontal-810x506.png?x32709" alt="logo-cabify"/>
+    </div>
+    
       <div className="row">
+      
         <div className="col-6">
-        <h2 className="mb-3">Listado de productos</h2>
+        <h2 className="mb-3">Product list</h2>
         {products.map((product, index) => 
         <ProductBox key={index} product={product} onAddToTotal={this.onAddToTotal}/>
         )}
